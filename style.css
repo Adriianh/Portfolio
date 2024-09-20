@@ -86,6 +86,7 @@ nav .right a:hover {
 
 /* Scroll Button */
 #scrollButton {
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
