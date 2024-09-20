@@ -44,6 +44,10 @@
       </div>
     </nav>
 
+    <button onclick="topFunction()" id="scrollButton" title="Volver al inicio">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <!-- Content -->
      <main>
       <!-- About Me - Section -->
@@ -171,9 +175,29 @@
         </ul>
       </section>
       <!--  Contact - Section -->
-      <section id="contact" class="contact-section"></section>
-     </main>
+      <section id="contact" class="contact-section">
+        <h2>Contacto</h2>
 
-    <script src="" async defer></script>
+        <div class="group">
+          <div class="text">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum illo eveniet velit id omnis repudiandae corrupti veritatis fugit reiciendis sapiente consequuntur eaque, maxime culpa, esse, doloremque sunt voluptates distinctio quas.</p>
+          </div>
+
+          <form>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Tu email" required>
+
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+     </main>
+    <script src="script.js" async defer></script>
   </body>
 </html>

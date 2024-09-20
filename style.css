@@ -78,6 +78,32 @@ nav .right a {
     margin: 0 10px;
 }
 
+nav .right a:hover {
+    transform: scale(1);
+	transition: var(--trans);
+	filter: drop-shadow(0px 20px 10px #0008);
+}
+
+/* Scroll Button */
+#scrollButton {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 30px;
+    border: 5px solid var(--link-color);
+    font-size: 18px;
+}
+
+#scrollButton:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1);
+	transition: var(--trans);
+	filter: drop-shadow(0px 20px 10px #0008);
+}
+
 /* About Section */
 .about-section {
     display: flex;
@@ -118,6 +144,13 @@ nav .right a {
     transition: .1s;
 }
 
+.about-section .text .refs a:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1);
+	transition: var(--trans);
+	filter: drop-shadow(0px 20px 10px #0008);
+}
+
 .about-section .avatar {
     flex: 3;
     display: flex;
@@ -132,6 +165,7 @@ nav .right a {
 .skills-section {
     padding: 0 50px;
     margin-bottom: 100px;
+    scroll-margin-top: 100px
 }
 
 .skills-section .text h2 {
@@ -182,6 +216,7 @@ nav .right a {
 .projects-section {
     padding: 0 50px;
     margin-bottom: 100px;
+    scroll-margin-top: 100px
 }
 
 .projects-section .text h2 {
@@ -249,6 +284,7 @@ nav .right a {
 .testimony-section {
     padding: 0 50px;
     margin-bottom: 100px;
+    scroll-margin-top: 100px
 }
 
 .testimony-section .text h2 {
@@ -274,32 +310,43 @@ nav .right a {
 
 .testimony-section .testimonies .testimony {
     margin: 1.5em 0 0.5em;
-	padding: 0.73em;
-	background: linear-gradient(
-		83deg,
-		var(--link-color) 0 97%,
-		#fff0 calc(97% + 1px) 100%
-	);
-	position: relative;
-	list-style: none;
-	display: inline-block;
-	transform: scale(0.85);
-	transition: var(--trans);
+    padding: 0.73em;
+    background: linear-gradient(
+        83deg,
+        var(white) 0 97%,
+        #fff0 calc(97% + 1px) 100%
+    );
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    transform: scale(0.85);
+    transition: var(--trans);
+    border: 5px solid transparent;
+    border-image: linear-gradient(
+        83deg,
+        var(--link-color) 0 100%
+    ) 1;
+    border-radius: 15px;
+    background-image: 
+        linear-gradient(white, white), 
+        radial-gradient(circle at top left, var(--link-color), var(--link-color));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
 
 .testimony-section .testimonies .testimony:nth-of-type(even) {
     text-align: right;
-	background: linear-gradient(
-		-83deg,
-		var(--link-color) 0 97%,
-		#fff0 calc(97% + 1px) 100%
-	);
+    background: linear-gradient(
+        -83deg,
+        var(white) 0 97%,
+        #fff0 calc(97% + 1px) 100%
+    );
 }
  
 .testimony-section .testimonies .testimony:hover {
     transform: scale(1);
-	transition: var(--trans);
-	filter: drop-shadow(0px 20px 10px #0008);
+    transition: var(--trans);
+    filter: drop-shadow(0px 20px 10px #0008);
 }
 
 .testimony-section .testimonies .testimony .thumb {
@@ -421,19 +468,137 @@ nav .right a {
 	background: linear-gradient(-182deg, #fff0 60%, var(--dark) 0 100%);
 }
 
+/* Contact */
+.contact-section {
+    padding: 0 50px;
+    margin-bottom: 100px;
+    scroll-margin-top: 100px
+}
+
+.contact-section h2 {
+    font-size: 35px;
+}
+
+.contact-section .group {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-section .group .text {
+    flex: 3;
+    margin-top: 20px;
+}
+
+.contact-section .group form {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section .group form input,
+.contact-section .group form textarea {
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid var(--link-color);
+    background-color: transparent;
+    padding: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    resize: none;
+}
+
+.contact-section .group form button {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: var(--link-color);
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    transition: .1s;
+}
+  
+.contact-section .group form button:hover {
+    filter: brightness(.9);
+}
+
 /* Media */
-@media (max-width: 768px) {
-    .projects-section .projects {
-      grid-template-columns: repeat(2, 1fr);
-      width: auto;
+@media (max-width: 850px) {
+    /* SECTION 1: About */
+    .about-section .text h2 {
+      font-size: 35px;
+    }
+  }
+  
+  @media (max-width: 740px) {
+    /* SECTION 1: About */
+    .about-section {
+      flex-direction: column-reverse;
+    }
+  
+    .about-section .avatar img {
+      width: 300px;
+    }
+  
+    /* SECTION 3: Testimony */
+    .testimony-section {
+      text-align: center;
+    }
+  
+    .testimony-section .testimonies {
+      flex-direction: column;
+    }
+  
+    /* SECTION 4: Contact */
+    .contact-section .group {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    /* NAVBAR */
+    nav {
       padding: 0 20px;
     }
-}
   
-@media (max-width: 480px) {
-    .projects-section .projects {
-      grid-template-columns: 1fr;
-      gap: 20px;
+    nav .right a {
+      font-size: 22px;
     }
-}
   
+    nav .right a:last-child {
+      color: var(--text-color);
+      background-color: transparent;
+      padding: 0;
+    }
+  
+    nav .right a span {
+      display: none;
+    }
+  
+    /* SECTION 1: About */
+    .about-section {
+      padding: 0 20px;
+    }
+  
+    .about-section .text h2 {
+      font-size: 30px;
+    }
+  
+    /* SECTION 2: Skills */
+    .skills-section {
+      padding: 0 20px;
+    }
+  
+    .skills-section .tools .tool span {
+      font-size: 16px;
+    }
+  
+    /* SECTION 3: Testimony */
+    .testimony-section {
+      padding: 0 20px;
+    }
+  
+    /* SECTION 4: Contact */
+    .contact-section {
+      padding: 0 20px;
+    }
+  }
